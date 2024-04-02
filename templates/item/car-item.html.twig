@@ -1,0 +1,8 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <h1>Page de voiture</h1>
+    <p>Nom de la voiture : {{ car.getName() }}</p>
+    <p>Description de la voiture : {{ car.getDescription() }}</p>
+    <p>Prix quotidien : {{ car.getDailyPrice() }}</p>
+
+{% endblock %}
