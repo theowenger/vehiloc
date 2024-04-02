@@ -37,6 +37,7 @@ class ReadCarItemController extends AbstractController
 
         dump($car);
 
+        //todo: gerer le cas des 404
 //        if ($car === null) {
 //            return new RedirectResponse("/404");
 //        }

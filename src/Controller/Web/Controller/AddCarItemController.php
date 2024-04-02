@@ -12,7 +12,7 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-class HomepageController extends AbstractController
+class AddCarItemController extends AbstractController
 {
     public function __construct(private readonly Environment $twig)
     {
@@ -24,15 +24,12 @@ class HomepageController extends AbstractController
      * @throws RuntimeError
      * @throws LoaderError
      */
-    #[Route('/', name: 'app_homepage', methods: ['GET'])]
+    #[Route('/car/add', name: 'app_add_car', methods: ['GET'])]
     public function __invoke(Request $request, CarRepository $carRepository) : Response
     {
 
-        $cars = $carRepository->findAll();
+        $html = $this->twig->render('misc/car-add.html.twig', [
 
-        $html = $this->twig->render('misc/homepage.html.twig', [
-            'banner' => true,
-            'cars' => $cars
         ]);
 
         return new Response($html);
