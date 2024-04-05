@@ -2,8 +2,11 @@
 
 namespace App\Controller\Web\Controller;
 
+use App\Entity\Car;
+use App\Form\CarType;
 use App\Repository\CarRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,9 +30,13 @@ class AddCarItemController extends AbstractController
     #[Route('/car/add', name: 'app_add_car', methods: ['GET'])]
     public function __invoke(Request $request, CarRepository $carRepository) : Response
     {
+        $car = new Car();
+        /** @var FormFactoryInterface $form */
+        $form = $this->createForm(CarType::class, $car);
+        $formView = $form->createView();
 
         $html = $this->twig->render('misc/car-add.html.twig', [
-
+            'form' => $formView,
         ]);
 
         return new Response($html);

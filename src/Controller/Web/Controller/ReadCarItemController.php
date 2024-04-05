@@ -38,9 +38,9 @@ class ReadCarItemController extends AbstractController
         dump($car);
 
         //todo: gerer le cas des 404
-//        if ($car === null) {
-//            return new RedirectResponse("/404");
-//        }
+        if ($car === null) {
+            return $this->redirectToRoute('app_homepage');
+        }
 
 
         $html = $this->twig->render('item/car-item.html.twig', [

@@ -13,7 +13,7 @@
                             <p>{{ car.description }} | Saint-Étienne</p>
                         </a>
                         <div>
-                            <a href="#"><img src="{{ asset('assets/icons/trash.png') }}" alt="Supprimer" /></a>
+                            <a href="{{ path('app_car_delete', {'id': car.id}) }}"><img src="{{ asset('assets/icons/trash.png') }}" alt="Supprimer" /></a>
                         </div>
                     </div>
                     <div class="mini-car-icons">
