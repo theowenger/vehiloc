@@ -20,18 +20,21 @@ class CarType extends AbstractType
         $builder
             ->add("name", TextType::class, [
                 'required' => true,
+                'label' => "Nom",
                 'constraints' => [
                     new Assert\Length(min: 3, max: 255)
                 ]
             ])
             ->add("description", TextType::class, [
                 'required' => true,
+                'label' => "Description",
                 'constraints' => [
                     new Assert\Length(min: 3, max: 255)
                 ]
             ])
             ->add("monthlyPrice", IntegerType::class, [
                 'required' => true,
+                'label' => "Prix Mensuel",
                 'constraints' => [
                     new Assert\Range([
                         'min' => 1,
@@ -42,6 +45,7 @@ class CarType extends AbstractType
             ])
             ->add("dailyPrice", IntegerType::class, [
                 'required' => true,
+                'label' => "Prix Journalier",
                 'constraints' => [
                     new Assert\Range([
                         'min' => 1,
@@ -52,6 +56,7 @@ class CarType extends AbstractType
             ])
             ->add("places", IntegerType::class, [
                 'required' => true,
+                'label' => "Places",
                 'constraints' => [
                     new Assert\Range([
                         'min' => 1,
@@ -62,9 +67,10 @@ class CarType extends AbstractType
             ])
             ->add('manual', ChoiceType::class, [
                 'required' => true,
+                'label' => "Vitesse",
                 'choices' => [
-                    'Manual' => 'manual',
-                    'Auto' => 'auto',
+                    'Manuelle' => 'manual',
+                    'Automatique' => 'auto',
                 ],
                 'constraints' => [
                     new Choice(['choices' => ['manual', 'auto'], 'message' => 'Le champ motor doit être soit "manual" soit "auto".']),

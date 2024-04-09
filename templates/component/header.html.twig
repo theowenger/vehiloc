@@ -2,7 +2,7 @@
 
 <nav>
     <a href="/"><img src="{{ asset('assets/img/logo.png') }}" alt="Vehicloc" /></a>
-    <a href="car/add" class="btn-nav">Ajouter une voiture</a>
+    <a href="{{ path('app_add_car') }}" class="btn-nav">Ajouter une voiture</a>
 </nav>
 
 {% set banner = banner ?? false %}
