@@ -22,7 +22,7 @@ class AppFixtures extends Fixture
         for($i = 0; $i < 10 ; $i++) {
         $car = new Car();
         $car->setName("Car number $i");
-        $car->setDescription("description nulber $i");
+        $car->setDescription("description number $i");
         $car->setDailyPrice($i * 3);
         $car->setMonthlyPrice($i * 100);
         $car->setPlaces($i % 2 === 0 ? 3 : 5);
